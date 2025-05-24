@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1601259785 source:c:\users\jorge\documents\trabajos seda\pruebas nombre 2\main.cpp
+	<iostream>
+	<cstring>
+	<stdlib.h>
+	<time.h>
+

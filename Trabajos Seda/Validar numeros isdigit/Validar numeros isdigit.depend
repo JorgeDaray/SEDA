@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1601859923 source:c:\users\jorge\documents\trabajos seda\validar numeros isdigit\main.cpp
+	<iostream>
+	<stdlib.h>
+

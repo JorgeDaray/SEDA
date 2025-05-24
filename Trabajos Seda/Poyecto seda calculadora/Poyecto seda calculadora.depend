@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1601859119 source:c:\users\jorge\documents\trabajos seda\poyecto seda calculadora\main.cpp
+	<iostream>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<cstdlib>
+

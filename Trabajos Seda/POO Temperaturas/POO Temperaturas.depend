@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1601607826 source:c:\users\jorge\documents\trabajos seda\poo temperaturas\main.cpp
+	<iostream>
+	<cstdlib>
+

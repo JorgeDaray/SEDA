@@ -1,0 +1,305 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include <string.h>
+
+struct node{
+    struct node *next;
+    int dato;
+};
+
+struct Lista{
+void inicializa();
+int inserta();
+void Localiza();
+void Imprime();
+void Recupera();
+void eliminateNode();
+void anular();
+void inserfirst();
+void insertlast();
+node *first;
+node *last;
+Lista(){
+inicializa();
+}
+};
+
+void Lista::inicializa(){
+    first = nullptr;
+    last = nullptr;
+};
+
+Lista mi_lista;
+int main()
+{
+    int opc;
+    do{
+    printf("\tINTRODUCE AN OPCION:\n");
+    printf("\n0.-Salir\n1.-Introduce\n2.-Localiza\n3.-Muestra\n4.-Recupera\n5.-Elimina\n6.-Anular\n7.-Insert first\n8.-Insert last\n");
+    mi_lista.Imprime();
+    scanf("%d", &opc);
+
+    switch(opc){
+        case 0: printf("\tAdios \n");
+                break;
+        case 1: printf("\tInsert a node in the list\n\n");
+                mi_lista.inserta();
+                break;
+        case 2: printf("\tSeek a node in the list\n\n");
+                mi_lista.Localiza();
+                system("pause");
+                break;
+       case 3: printf("\tShow the list\n\n");
+                mi_lista.Imprime();
+                system("pause");
+                break;
+        case 4: printf("\tRecuperate the list\n\n");
+                mi_lista.Recupera();
+                system("pause");
+                break;
+        case 5: printf("\tEliminate node\n\n");
+                mi_lista.eliminateNode();
+                system("pause");
+                break;
+        case 6: printf("\tAnulate List\n\n");
+                mi_lista.anular();
+                system("pause");
+                break;
+        case 7: printf("\tInsert first\n\n");
+                mi_lista.inserfirst();
+                system("pause");
+                break;
+        case 8: printf("\tInsert last\n\n");
+                mi_lista.insertlast();
+                system("pause");
+                break;
+        default: printf("\tChoose a correct value");
+                break;
+    }
+    system("cls");
+    }while(opc!=0);
+
+
+    return 0;
+}
+
+int Lista::inserta()
+{
+    node *new_n = (node *) malloc(sizeof(node));
+if(!new_n){// new_==NULL
+printf("Memory allocation error, new node could not be created");
+return -1;
+}
+
+    printf("INTRODUCE THE VALUE OF THE NEW NODE: ");
+    scanf("%d", &new_n -> data);
+    //se guardara en el nuevo nodo en su propiedad dato
+        printf("Dato: ");
+        scanf("%d",&new_n->dato);
+    if(first == NULL){
+        first = new_n;
+        first ->next = NULL;
+        last = new_n;
+    }
+    else{
+        last -> next = new_n;
+        new_n -> next = NULL;
+        last = new_n;
+    }
+
+    printf("\nTHE NODE HAVE BEEN INTRODUCE CORRECTLY\n\n");
+    system("pause");
+return 0;
+}
+
+void Lista::inserfirst()
+        {
+        node *in_first = (node *) malloc(sizeof(node));
+        if(!in_first){// new_==NULL
+            printf("Memory allocation error, new node could not be created");
+            return;
+        }
+
+        printf("INTRODUCE THE VALUE OF THE NEW NODE: ");
+        printf("Dato: ");
+        scanf("%d",&in_first->dato);
+        if(first == NULL){
+            first = in_first;
+            first ->next = NULL;
+            last = in_first;
+        }
+        else{
+            in_first->next = first;
+            first=in_first;
+        }
+
+            printf("\nTHE NODE HAVE BEEN INTRODUCE CORRECTLY\n\n");
+            system("pause");
+    }
+
+        void Lista::insertlast()
+        {
+        node *in_last = (node *) malloc(sizeof(node));
+        if(!in_last){// new_==NULL
+            printf("Memory allocation error, new node could not be created");
+            return;
+        }
+
+        printf("INTRODUCE THE VALUE OF THE NEW NODE: ");
+            printf("Dato: ");
+            scanf("%d",&in_last->dato);
+        if(last == NULL){
+            first = in_last;
+            first ->next = NULL;
+            last = in_last;
+        }
+        else{
+            last -> next = in_last;
+            in_last -> next = NULL;
+            last = in_last;
+        }
+
+            printf("\nTHE NODE HAVE BEEN INTRODUCE CORRECTLY\n\n");
+            system("pause");
+    }
+
+void Lista::Imprime()
+    {
+    node *temp = (node *) malloc(sizeof(node));
+    temp = first;
+    if (first != NULL){
+        while (temp != NULL){
+            printf("ancla-> ");
+            printf("Actual %d Dato %d", temp->data+1, temp->dato);
+            temp = temp ->next;
+            printf("nullptr\n\n");
+        }
+    }
+    else{
+        printf("\n The list is empty\n");
+    }
+    }
+
+void Lista::eliminateNode()
+{
+    node *actual = (node *) malloc(sizeof(node));
+    actual = first;
+
+    node* before = (node *) malloc(sizeof(node));
+    before = NULL;
+
+    int soughtnode = 0, found = 0 ;
+
+    printf(" Introduce the posicion of the node that you want to eliminate: ");
+    scanf("%d", &soughtnode);
+
+    if(first != NULL){
+        while(actual != NULL && found != 1){
+
+            if(actual -> data == soughtnode){
+
+                if(actual == first){
+                    first = first ->next;
+                }
+                else{
+                    before -> next = actual -> next;
+                }
+                printf("\nThe link of the node have been eliminated");
+                found = 1;
+            }
+            before = actual;
+            actual = actual ->next;
+        }
+        if(found == 0){
+            printf("\nthe node was not found\n\n");
+        }
+        else{
+            //->->->->->->->->->->->->->->->->->->
+            free(before);
+            printf("\n\nNODE ELIMINATED SUCCESSFUL");
+        }
+    }
+    else{
+        printf("\nTHE LIST IS EMPTY\n\n");
+    }
+    printf("\n");
+}
+
+void Lista::Localiza(){
+ node *temp = (node *) malloc(sizeof(node));
+    temp = first;
+    int soughtnode = 0, found = 0 ;
+    printf(" Introduce the posicion of the node that you want to seek: ");
+    scanf("%d", &soughtnode);
+    if (first != NULL){
+        while (temp != NULL && found != 1){
+            if ( temp -> data == soughtnode ){
+                printf("Posicion %d", temp->data);
+                printf("Dato: %i\n\n", temp->dato);
+                found = 1;
+            }
+            temp = temp ->next;
+        }
+        if (found == 0){
+            printf("El nodo no fue encontrado");
+        }
+    }
+    else{
+        printf("\n The list is empty\n");
+    }
+}
+
+void Lista::Recupera(){
+node *temp = (node *) malloc(sizeof(node));
+    temp = first;
+    int soughtnode = 0, found = 0 ;
+
+    printf(" Introduce the dato of the node that you want to recuperate: ");
+    scanf("%d", &soughtnode);
+
+    if (first != NULL){
+        while (temp != NULL && found != 1){
+            if (temp -> dato == soughtnode){
+                printf("Posicion %d", temp->data);
+                printf("Dato: %i\n\n", temp->dato);
+                found = 1;
+            }
+            temp = temp ->next;
+        }
+        if (found == 0){
+            printf("El nodo no fue encontrado");
+        }
+    }
+    else{
+        printf("\n The list is empty\n");
+    }
+}
+
+void Lista::anular()
+{
+     node *actual = (node *) malloc(sizeof(node));
+    actual = first;
+
+    node* before = (node *) malloc(sizeof(node));
+    before = NULL;
+
+    if(first != NULL){
+        while(actual != NULL){
+
+                if(actual == first){
+                    first = first ->next;
+                }
+                else{
+                    before -> next = actual -> next;
+                }
+            before = actual;
+            actual = actual ->next;
+        }
+            free(before);
+            printf("\n\nNODE ELIMINATED SUCCESSFUL");
+    }
+    else{
+        printf("\nTHE LIST IS EMPTY\n\n");
+    }
+    printf("\n");
+}

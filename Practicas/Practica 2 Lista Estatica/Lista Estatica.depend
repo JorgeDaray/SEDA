@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1616114254 source:d:\trabajos seda\practicas\practica 2 lista estatica\main.cpp
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<string>
+

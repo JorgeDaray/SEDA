@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1637265453 source:d:\trabajos seda\practicas\arboles\main.cpp
+	<iostream>
+	<stdlib.h>
+	<string.h>
+

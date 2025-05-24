@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1630946744 source:d:\trabajos calis\lista_simplemente_ligada\main.c
+	<stdio.h>
+	<string.h>
+

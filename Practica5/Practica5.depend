@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1670218712 source:d:\trabajos seda\2022-a practicas\practica5\main.cpp
+	<iostream>
+	<string.h>
+	<fstream>
+

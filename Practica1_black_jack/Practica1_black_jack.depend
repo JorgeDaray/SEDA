@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1643330330 source:d:\trabajos seda\2022-a practicas\practica1_black_jack\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+

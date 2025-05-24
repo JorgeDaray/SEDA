@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1651805833 source:d:\trabajos seda\2022-a practicas\arbol_prueba\main.cpp
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+

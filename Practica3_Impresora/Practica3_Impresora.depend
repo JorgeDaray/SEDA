@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1646975603 source:d:\trabajos seda\2022-a practicas\practica3_impresora\main.cpp
+	<iostream>
+	<string.h>
+
